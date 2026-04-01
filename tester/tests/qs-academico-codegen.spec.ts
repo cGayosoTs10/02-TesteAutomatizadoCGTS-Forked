@@ -1,0 +1,35 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://cgayosots10.github.io/02-TesteAutomatizadoCGTS-Forked/');
+  await page.getByRole('textbox', { name: 'Nome do Aluno' }).click();
+  await page.getByRole('textbox', { name: 'Nome do Aluno' }).fill('Ana Silva');
+  await page.getByRole('spinbutton', { name: 'Nota 1' }).click();
+  await page.getByRole('spinbutton', { name: 'Nota 1' }).fill('8');
+  await page.getByRole('spinbutton', { name: 'Nota 2' }).click();
+  await page.getByRole('spinbutton', { name: 'Nota 2' }).fill('7');
+  await page.getByRole('spinbutton', { name: 'Nota 3' }).click();
+  await page.getByRole('spinbutton', { name: 'Nota 3' }).fill('9');
+  await page.getByRole('button', { name: 'Cadastrar' }).click();
+  await page.getByRole('textbox', { name: 'Nome do Aluno' }).fill('Carlos Lima');
+  await page.locator('#form-cadastro').getByText('Nota 1').click();
+  await page.getByRole('spinbutton', { name: 'Nota 1' }).click();
+  await page.getByRole('spinbutton', { name: 'Nota 1' }).fill('54');
+  await page.getByRole('spinbutton', { name: 'Nota 2' }).click();
+  await page.getByRole('spinbutton', { name: 'Nota 1' }).click();
+  await page.getByRole('spinbutton', { name: 'Nota 1' }).fill('5');
+  await page.getByRole('spinbutton', { name: 'Nota 2' }).dblclick();
+  await page.getByRole('spinbutton', { name: 'Nota 2' }).fill('4');
+  await page.getByRole('spinbutton', { name: 'Nota 3' }).dblclick();
+  await page.getByRole('spinbutton', { name: 'Nota 3' }).fill('6');
+  await page.getByText('Nome do Aluno Nota 1 Nota 2').click();
+  await page.getByRole('button', { name: 'Cadastrar' }).click();
+  await page.getByRole('textbox', { name: 'Buscar por nome' }).click();
+  await page.getByRole('textbox', { name: 'Buscar por nome' }).fill('Ana');
+  await page.getByRole('textbox', { name: 'Buscar por nome' }).press('Enter');
+  await page.getByRole('heading', { name: 'Resultados' }).click();
+  await page.getByRole('textbox', { name: 'Buscar por nome' }).dblclick();
+  await page.getByRole('textbox', { name: 'Buscar por nome' }).fill('');
+  await page.getByText('QS Acadêmico Sistema de Gestão de Notas Cadastro de Aluno Nome do Aluno Nota 1').dblclick();
+  await page.getByRole('button', { name: 'Excluir Carlos Lima' }).click();
+});
